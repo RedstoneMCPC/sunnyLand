@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/platformer_level03_loop.ogg-05cafe6261943079ce9bec109ff61644.oggstr"
+
+[deps]
+
+source_file="res://assets/platformer_level03_loop.ogg"
+dest_files=[ "res://.import/platformer_level03_loop.ogg-05cafe6261943079ce9bec109ff61644.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

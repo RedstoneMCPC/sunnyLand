@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://tiles/foregroundTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://tiles/decorTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://tiles/groundTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://scripts/LevelSoccer.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/environment/tilesetprops.png" type="Texture" id=7]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.93
+bounce = 0.87
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 40 )
+
+[node name="LevelSoccer" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="ForegroundTilemap" type="TileMap" parent="Graphics"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131097, 17, 0, 131098, 9, 0, 131099, 5, 0, 131100, 5, 0, 131101, 5, 0, 131102, 10, 0, 131103, 20, 0, 196634, 15, 0, 196635, 5, 0, 196636, 3, 0, 196637, 5, 0, 196638, 16, 0, 262170, 17, 0, 262171, 9, 0, 262172, 5, 0, 262173, 5, 0, 262174, 16, 0, 327707, 15, 0, 327708, 5, 0, 327709, 10, 0, 327710, 20, 0, 393243, 15, 0, 393244, 5, 0, 393245, 16, 0, 458779, 15, 0, 458780, 5, 0, 458781, 13, 0, 458782, 14, 0, 524314, 11, 0, 524315, 12, 0, 524316, 5, 0, 524317, 5, 0, 524318, 16, 0, 589849, 11, 0, 589850, 12, 0, 589851, 5, 0, 589852, 5, 0, 589853, 3, 0, 589854, 13, 0, 589855, 14, 0 )
+
+[node name="GroundTilemap" type="TileMap" parent="Graphics"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 4, 0, 1, 23, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 20, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 23, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 20, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 37, 23, 0, 38, 4, 0, 39, 4, 0, 65536, 4, 0, 65537, 22, 0, 65538, 7, 0, 65539, 7, 0, 65540, 7, 0, 65541, 7, 0, 65542, 7, 0, 65543, 7, 0, 65544, 7, 0, 65545, 7, 0, 65546, 7, 0, 65547, 7, 0, 65548, 7, 0, 65549, 7, 0, 65550, 7, 0, 65551, 7, 0, 65552, 7, 0, 65553, 7, 0, 65554, 7, 0, 65555, 7, 0, 65556, 7, 0, 65557, 7, 0, 65558, 7, 0, 65559, 7, 0, 65560, 7, 0, 65561, 7, 0, 65562, 7, 0, 65563, 7, 0, 65564, 7, 0, 65565, 7, 0, 65566, 7, 0, 65567, 7, 0, 65568, 7, 0, 65569, 7, 0, 65570, 7, 0, 65571, 7, 0, 65572, 7, 0, 65573, 7, 0, 65574, 21, 0, 65575, 4, 0, 131072, 4, 0, 131073, 5, 0, 131110, 3, 0, 131111, 4, 0, 196608, 4, 0, 196609, 5, 0, 196646, 3, 0, 196647, 4, 0, 262144, 4, 0, 262145, 5, 0, 262182, 3, 0, 262183, 4, 0, 327680, 4, 0, 327681, 5, 0, 327718, 3, 0, 327719, 4, 0, 393216, 4, 0, 393217, 5, 0, 393254, 3, 0, 393255, 4, 0, 458752, 4, 0, 458753, 1610612757, 0, 458754, 1, 0, 458755, 1, 0, 458756, 2, 0, 458787, 0, 0, 458788, 1, 0, 458789, 1, 0, 458790, 1610612758, 0, 458791, 20, 0, 524288, 4, 0, 524289, 20, 0, 524290, 4, 0, 524291, 4, 0, 524292, 5, 0, 524293, 31, 0, 524322, 30, 0, 524323, 3, 0, 524324, 4, 0, 524325, 4, 0, 524326, 4, 0, 524327, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 5, 0, 589830, 31, 0, 589857, 30, 0, 589859, 3, 0, 589860, 4, 0, 589861, 4, 0, 589862, 4, 0, 589863, 4, 0, 655360, 4, 0, 655361, 4, 0, 655362, 4, 0, 655363, 23, 0, 655364, 1610612757, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 24, 0, 655373, 24, 0, 655374, 24, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 24, 0, 655386, 24, 0, 655387, 24, 0, 655388, 24, 0, 655389, 24, 0, 655390, 24, 0, 655391, 24, 0, 655392, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1610612758, 0, 655396, 4, 0, 655397, 23, 0, 655398, 4, 0, 655399, 4, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 20, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 4, 0, 720911, 4, 0, 720912, 23, 0, 720913, 4, 0, 720914, 4, 0, 720915, 23, 0, 720916, 4, 0, 720917, 4, 0, 720918, 4, 0, 720919, 4, 0, 720920, 20, 0, 720921, 4, 0, 720922, 4, 0, 720923, 4, 0, 720924, 4, 0, 720925, 4, 0, 720926, 4, 0, 720927, 4, 0, 720928, 4, 0, 720929, 4, 0, 720930, 20, 0, 720931, 4, 0, 720932, 4, 0, 720933, 4, 0, 720934, 4, 0, 720935, 4, 0 )
+
+[node name="DecorTilemap" type="TileMap" parent="Graphics"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262157, 15, 0, 393219, 10, 0, 393252, 11, 0, 458757, 4, 0, 458758, 5, 0, 458786, 7, 0, 524293, 13, 0, 524297, 19, 0, 589831, 10, 0, 589844, 11, 0, 589845, 11, 0, 589847, 18, 0, 589858, 12, 0 )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player1" parent="Players" instance=ExtResource( 6 )]
+position = Vector2( 288, 144 )
+
+[node name="Player2" parent="Players" instance=ExtResource( 6 )]
+position = Vector2( 352, 144 )
+playerID = 2
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2( 320, 152 )
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.2
+can_sleep = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 80, 192, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource( 2 )
+
+[node name="Goals" type="Node2D" parent="."]
+
+[node name="GoalLeft" type="Area2D" parent="Goals"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/GoalLeft"]
+position = Vector2( 40, 72 )
+shape = SubResource( 3 )
+
+[node name="GoalRight" type="Area2D" parent="Goals"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/GoalRight"]
+position = Vector2( 600, 72 )
+shape = SubResource( 3 )
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="Goals/GoalLeft" to="." method="_on_GoalLeft_body_entered"]
+[connection signal="body_entered" from="Goals/GoalRight" to="." method="_on_GoalRight_body_entered"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

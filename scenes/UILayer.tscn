@@ -1,0 +1,448 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/ui/ThaleahFat.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/ui/titleLogo.png" type="Texture" id=2]
+[ext_resource path="res://scripts/UILayer.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/titleScreen.png" type="Texture" id=4]
+[ext_resource path="res://assets/entities/player/playerIdle1.png" type="Texture" id=5]
+[ext_resource path="res://assets/entities/player/playerIdle2.png" type="Texture" id=6]
+[ext_resource path="res://assets/entities/player/playerIdle3.png" type="Texture" id=7]
+[ext_resource path="res://assets/entities/player/playerIdle4.png" type="Texture" id=8]
+[ext_resource path="res://assets/entities/cherry/cherryIdle3.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "playerIdle",
+"speed": 12.0
+} ]
+
+[node name="UILayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+texture = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer"]
+margin_left = 60.0
+margin_right = 260.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer"]
+margin_top = 3.0
+margin_right = 200.0
+margin_bottom = 51.0
+texture = ExtResource( 2 )
+
+[node name="LevelSelect" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer"]
+margin_top = 55.0
+margin_right = 200.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level select"
+
+[node name="Options" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 200.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 1 )
+text = "OPTIONS"
+
+[node name="About" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer"]
+margin_top = 105.0
+margin_right = 200.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 1 )
+text = "ABOUT"
+
+[node name="Credits" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 200.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 1 )
+text = "CREDITS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer"]
+margin_top = 155.0
+margin_right = 200.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 1 )
+text = "EXIT"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MainMenu"]
+position = Vector2( 24, 33 )
+frames = SubResource( 1 )
+animation = "playerIdle"
+frame = 1
+playing = true
+
+[node name="LevelSelect" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="LevelSelect"]
+margin_right = 320.0
+margin_bottom = 180.0
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="LevelSelect"]
+position = Vector2( 24, 33 )
+frames = SubResource( 1 )
+animation = "playerIdle"
+frame = 3
+playing = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect"]
+margin_right = 320.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/HBoxContainer"]
+margin_left = 112.0
+margin_right = 207.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="Level01" type="Button" parent="LevelSelect/HBoxContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 95.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 1 )
+text = "Demo Level"
+
+[node name="LevelSoccer" type="Button" parent="LevelSelect/HBoxContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 95.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "Soccer Test"
+
+[node name="BackButton" type="Button" parent="LevelSelect/HBoxContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 95.0
+margin_bottom = 125.0
+custom_fonts/font = ExtResource( 1 )
+text = "BACK"
+
+[node name="OptionsMenu" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="OptionsMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="OptionsMenu"]
+position = Vector2( 24, 33 )
+frames = SubResource( 1 )
+animation = "playerIdle"
+playing = true
+
+[node name="ColorRect" type="ColorRect" parent="OptionsMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.133333, 0.117647, 0.117647, 0.843137 )
+
+[node name="CenterContainer" type="CenterContainer" parent="OptionsMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/CenterContainer"]
+margin_left = 32.0
+margin_top = 46.0
+margin_right = 288.0
+margin_bottom = 133.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/CenterContainer/HBoxContainer"]
+margin_right = 88.0
+margin_bottom = 87.0
+
+[node name="Label" type="Label" parent="OptionsMenu/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 88.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+text = "music volume"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 88.0
+margin_bottom = 35.0
+max_value = 1.0
+step = 0.01
+
+[node name="Back" type="Button" parent="OptionsMenu/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 88.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 1 )
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionsMenu/CenterContainer/HBoxContainer"]
+margin_left = 103.0
+margin_right = 256.0
+margin_bottom = 87.0
+
+[node name="Label2" type="Label" parent="OptionsMenu/CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 153.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 1 )
+text = "CONTROLS:
+WASD - MOVEMENT
+SHIFT - RUN
+ESC - PAUSE
+KEYBOARD - NAVIGATE UI"
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.133333, 0.117647, 0.117647, 0.843137 )
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer"]
+margin_left = 116.0
+margin_top = 60.0
+margin_right = 204.0
+margin_bottom = 120.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_right = 88.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+text = "MUSIC VOLUME"
+
+[node name="MenuVolume" type="HSlider" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 88.0
+margin_bottom = 35.0
+max_value = 1.0
+step = 0.01
+
+[node name="LevelExit" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 88.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 1 )
+text = "EXIT"
+
+[node name="HUD" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HUD"]
+margin_left = 20.0
+margin_top = 4.0
+margin_right = 60.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "x 0"
+
+[node name="AboutMenu" type="MarginContainer" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="AboutMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="AboutMenu"]
+position = Vector2( 24, 33 )
+frames = SubResource( 1 )
+animation = "playerIdle"
+frame = 3
+playing = true
+
+[node name="ColorRect" type="ColorRect" parent="AboutMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.133333, 0.117647, 0.117647, 0.843137 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AboutMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AboutMenu/HBoxContainer"]
+margin_left = 41.0
+margin_right = 278.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="Label" type="Label" parent="AboutMenu/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 237.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 1 )
+text = "Hello, and welcome to sunny land!"
+
+[node name="Label2" type="Label" parent="AboutMenu/HBoxContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 237.0
+margin_bottom = 94.0
+custom_fonts/font = ExtResource( 1 )
+text = "This is a mini - prototype designed to test features and functionality."
+autowrap = true
+
+[node name="Label4" type="Label" parent="AboutMenu/HBoxContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 237.0
+margin_bottom = 131.0
+custom_fonts/font = ExtResource( 1 )
+text = "Thank you for playing, and have a good day!"
+autowrap = true
+
+[node name="Button" type="Button" parent="AboutMenu/HBoxContainer/VBoxContainer"]
+margin_top = 135.0
+margin_right = 237.0
+margin_bottom = 156.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+
+[node name="Credits" type="MarginContainer" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Credits"]
+margin_right = 320.0
+margin_bottom = 180.0
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Credits"]
+position = Vector2( 24, 33 )
+frames = SubResource( 1 )
+animation = "playerIdle"
+frame = 1
+playing = true
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.133333, 0.117647, 0.117647, 0.843137 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits"]
+margin_right = 320.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/HBoxContainer"]
+margin_left = 40.0
+margin_right = 279.0
+margin_bottom = 180.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 239.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAME CREATOR - mcpcstudios"
+
+[node name="Label2" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 239.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 1 )
+text = "ASSET PACK: SUNNY LAND BY ANSIMUZ"
+
+[node name="Label3" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+margin_top = 61.0
+margin_right = 239.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 1 )
+text = "MUSIC: Pascal Belisle"
+
+[node name="Label4" type="Label" parent="Credits/HBoxContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 239.0
+margin_bottom = 131.0
+custom_fonts/font = ExtResource( 1 )
+text = "tHIS GAME IS MADE IN THE GODOT GAME ENGINE. LICENSE: GODOTENGINE.ORG/LICENSE"
+autowrap = true
+
+[node name="CreditBack" type="Button" parent="Credits/HBoxContainer/VBoxContainer"]
+margin_top = 135.0
+margin_right = 239.0
+margin_bottom = 156.0
+custom_fonts/font = ExtResource( 1 )
+text = "BACK"
+
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/VBoxContainer/Level01" to="." method="_on_Level01_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/VBoxContainer/LevelSoccer" to="." method="_on_LevelSoccer_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="value_changed" from="OptionsMenu/CenterContainer/HBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="OptionsMenu/CenterContainer/HBoxContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="value_changed" from="PauseMenu/CenterContainer/VBoxContainer/MenuVolume" to="." method="_on_MenuVolume_value_changed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/LevelExit" to="." method="_on_LevelExit_pressed"]
+[connection signal="pressed" from="AboutMenu/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Credits/HBoxContainer/VBoxContainer/CreditBack" to="." method="_on_CreditBack_pressed"]

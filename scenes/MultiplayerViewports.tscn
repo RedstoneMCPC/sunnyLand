@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/LevelSoccer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/MultiplayerViewports.gd" type="Script" id=2]
+[ext_resource path="res://scripts/MultiplayerCamera.gd" type="Script" id=3]
+[ext_resource path="res://assets/environment/back.png" type="Texture" id=4]
+[ext_resource path="res://assets/platformer_level03_loop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/ui/ThaleahFat.tres" type="DynamicFont" id=6]
+
+[node name="MultiplayerViewports" type="Node"]
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer1" type="ViewportContainer" parent="HBoxContainer"]
+margin_right = 160.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+stretch = true
+
+[node name="Viewport1" type="Viewport" parent="HBoxContainer/ViewportContainer1"]
+size = Vector2( 640, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/ViewportContainer1/Viewport1"]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 192
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource( 3 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="HBoxContainer/ViewportContainer1/Viewport1"]
+scroll_base_scale = Vector2( 0.5, 0.5 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="HBoxContainer/ViewportContainer1/Viewport1/ParallaxBackground"]
+motion_scale = Vector2( 1, 0 )
+motion_offset = Vector2( 0, -90 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="HBoxContainer/ViewportContainer1/Viewport1/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="HBoxContainer"]
+margin_left = 160.0
+margin_right = 320.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+stretch = true
+
+[node name="Viewport2" type="Viewport" parent="HBoxContainer/ViewportContainer2"]
+size = Vector2( 640, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/ViewportContainer2/Viewport2"]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 192
+limit_smoothed = true
+smoothing_enabled = true
+script = ExtResource( 3 )
+
+[node name="LevelSoccer" parent="HBoxContainer/ViewportContainer2/Viewport2" instance=ExtResource( 1 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="HBoxContainer/ViewportContainer2/Viewport2"]
+scroll_base_scale = Vector2( 0.5, 0.5 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="HBoxContainer/ViewportContainer2/Viewport2/ParallaxBackground"]
+motion_scale = Vector2( 1, 0 )
+motion_offset = Vector2( 0, -90 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="HBoxContainer/ViewportContainer2/Viewport2/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 140.0
+margin_top = 9.0
+margin_right = 180.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 6 )
+text = "0 - 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
